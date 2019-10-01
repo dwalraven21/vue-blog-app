@@ -4,37 +4,37 @@
   		<h1>Get the latest tech news!</h1>
   	</section>
 	<section class="featured-posts">
-		<nuxt-link :to="'/posts/' + 1" >
-			<article class="post-preview">
-				<div class="post-thumbnail" style="background-image: url('https://cdn.vox-cdn.com/thumbor/UxgwyNj0Lf5Dmc2qNKE9kdA4V_4=/0x0:2040x1360/712x401/filters:focal(857x517:1183x843):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/63116958/VRG_3246_Hero_Search.0.jpg')">
-
-				</div>
-				<div class="post-content">
-					<h1>In Arizona, Facebook moderators get through the day with sex, drugs, and guns</h1>
-					<p>Preview</p>
-				</div>
-
-			</article>
-		</nuxt-link>
-		<nuxt-link :to="'/posts/' + 2" >
-			<article class="post-preview">
-				<div class="post-thumbnail" style="background-image: url('https://cdn.vox-cdn.com/thumbor/2atzrytw0Iev7OC9r1ee3sRoLpQ=/0x0:1920x1080/920x613/filters:focal(807x387:1113x693):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/65359167/hls_hero_00000_0.0.jpg')">
-
-				</div>
-				<div class="post-content">
-					<h1>NASA is now officially accepting proposals for landers to take people to the Moon</h1>
-					<p>Preview 2</p>
-				</div>
-
-			</article>
-		</nuxt-link>
+		<PostPreview
+			id="1"
+			thumbnail="https://www.abc.net.au/news/image/11539064-16x9-460x259.jpg"
+			title="Hello there!"
+			previewText="This is my first post."
+		/>
+		<PostPreview
+			id="2"
+			thumbnail="https://www.abc.net.au/news/image/11539064-16x9-460x259.jpg"
+			title="Hello there!"
+			previewText="This is my second post."
+		/>
+		<PostPreview
+			id="3"
+			thumbnail="https://www.abc.net.au/news/image/11539064-16x9-460x259.jpg"
+			title="Hello there!"
+			previewText="This is my third post."
+		/>
 
 	</section>
   </div>
 </template>
 
 <script>
+	import PostPreview from '@/components/Posts/PostPreview'
 
+	export default {
+		components: {
+			PostPreview: PostPreview
+		}
+	}
 </script>
 
 <style scoped>
@@ -43,6 +43,7 @@
   position: relative;
   padding: 30px;
   box-sizing: border-box;
+  background-image: url('~assets/images/main-page-background.jpg');
   background-position: center;
   background-size: cover;
 }
@@ -77,40 +78,8 @@
   justify-content: center;
 }
 
-.post-preview {
-  border: 1px solid #ccc;
-  box-shadow: 0 2px 2px #ccc;
-  background-color: white;
-  width: 90%;
-}
-
 a {
   text-decoration: none;
   color: black;
 }
-
-@media (min-width: 850px) {
-  .post-preview {
-    width: 400px;
-    margin: 10px;
-  }
-}
-
-.post-thumbnail {
-  width: 100%;
-  height: 200px;
-  background-position: center;
-  background-size: cover;
-}
-
-.post-content {
-  padding: 10px;
-  text-align: center;
-}
-
-a:hover .post-content,
-a:active .post-content {
-  background-color: #ccc;
-}
-
 </style>
