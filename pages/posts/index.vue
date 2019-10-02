@@ -11,19 +11,27 @@ export default {
 	components: {
 		PostList
 	},
-	asyncData(context, callback) {
-		setTimeout(() => {
-			callback(null, {
-				loadedPosts: [
-					{
-					id: '1',
-					title: "First Post",
-					previewText: "This is a post.",
-					thumbnail: "https://www.abc.net.au/news/image/11539064-16x9-460x259.jpg"
-					}
-				]
-			})
-		}, 1500)
+	asyncData(context) {
+		return new Promise((response, reject) => {
+			setTimeout(() => {
+				response({
+					loadedPosts: [
+						{
+						id: '1',
+						title: "First Post",
+						previewText: "This is a post.",
+						thumbnail: "https://www.abc.net.au/news/image/11539064-16x9-460x259.jpg"
+						}
+					]
+				})
+			}, 1500)
+		})
+		.then(data => {
+			return data
+		})
+		.catch(e => {
+			context.error(new Error());
+		});
 	}
 }
 </script>
