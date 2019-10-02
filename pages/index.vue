@@ -3,7 +3,7 @@
   	<section class="intro">
   		<h1>Get the latest tech news!</h1>
   	</section>
-	<PostList />
+	<PostList :posts="loadedPosts"/>
   </div>
 </template>
 
@@ -13,6 +13,20 @@
 	export default {
 		components: {
 			PostList
+		},
+		asyncData(context, callback) {
+			setTimeout(() => {
+				callback(null, {
+					loadedPosts: [
+						{
+						id: '1',
+						title: "First Post",
+						previewText: "This is a post.",
+						thumbnail: "https://www.abc.net.au/news/image/11539064-16x9-460x259.jpg"
+						}
+					]
+				})
+			}, 1500)
 		}
 	}
 </script>

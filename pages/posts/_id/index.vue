@@ -1,16 +1,16 @@
 <template lang="html">
   <div class="single-post-page">
   	<section class="post">
-		<h1 class="post-title">Title</h1>
+		<h1 class="post-title">{{ loadedPost.title }}</h1>
 		<div class="post-details">
 			<div class="post-detail">
-				Last updated on XXX
+				Last updated on {{ loadedPost.updatedDate }}
 			</div>
 			<div class="post-detail">
-				Writen by name
+				Writen by {{ loadedPost.author }}
 			</div>
 		</div>
-		<p class="post-content">Content of the post</p>
+		<p class="post-content">{{ loadedPost.content }}</p>
   	</section>
 	<section class="post-feedback">
 		<p>Let me know what you think about this post, send an email to <a href="mailto:dwalraven21@gmail.com">dwalraven21@gmail.com</a>.</p>
@@ -20,6 +20,21 @@
 
 <script>
 export default {
+	asyncData(context, callback){
+		setTimeout(() => {
+			callback(null, {
+				loadedPost: {
+					id: "1",
+					title: "First Post (ID: " + context.params.id + ")",
+					previewText: "This is a preview...",
+					author: "Danielle",
+					updatedDate: new Date(),
+					content: "This is some dummy text which is different from the preview text.",
+					thumbnail: "https://www.abc.net.au/news/image/11539064-16x9-460x259.jpg"
+				}
+			})
+		}, 1000)
+	}
 }
 </script>
 
