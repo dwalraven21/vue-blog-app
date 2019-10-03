@@ -12,9 +12,9 @@ export default {
 		PostList
 	},
 	asyncData(context) {
-		return new Promise((response, reject) => {
+		return new Promise((resolve, reject) => {
 			setTimeout(() => {
-				response({
+				resolve({
 					loadedPosts: [
 						{
 						id: '1',
@@ -32,6 +32,9 @@ export default {
 		.catch(e => {
 			context.error(new Error());
 		});
+	},
+	created() {
+		this.$store.dispatch('setPosts', this.loadedPosts)
 	}
 }
 </script>
