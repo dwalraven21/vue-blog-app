@@ -11,8 +11,23 @@ const createStore = () => {
 			}
 		},
 		actions: {
-			setPosts(context, posts) {
-				context.commit('setPosts', posts)
+			nuxtServerInit(vuexContext, context) {
+				return new Promise((resolve, reject) => {
+					setTimeout(() => {
+						vuexContext.commit('setPosts', [
+							{
+							id: '1',
+							title: "First Post",
+							previewText: "This is a post.",
+							thumbnail: "https://www.abc.net.au/news/image/11539064-16x9-460x259.jpg"
+							}				
+						])
+					resolve()
+					}, 1500)
+				})
+			},
+			setPosts(vuexContext, posts) {
+				vuexContext.commit('setPosts', posts)
 			}
 		},
 		getters: {

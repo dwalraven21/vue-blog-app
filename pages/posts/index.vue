@@ -11,30 +11,10 @@ export default {
 	components: {
 		PostList
 	},
-	asyncData(context) {
-		return new Promise((resolve, reject) => {
-			setTimeout(() => {
-				resolve({
-					loadedPosts: [
-						{
-						id: '1',
-						title: "First Post",
-						previewText: "This is a post.",
-						thumbnail: "https://www.abc.net.au/news/image/11539064-16x9-460x259.jpg"
-						}
-					]
-				})
-			}, 1500)
-		})
-		.then(data => {
-			return data
-		})
-		.catch(e => {
-			context.error(new Error());
-		});
-	},
-	created() {
-		this.$store.dispatch('setPosts', this.loadedPosts)
+	computed: {
+		loadedPosts() {
+			return this.$store.getters.loadedPosts
+		}
 	}
 }
 </script>
