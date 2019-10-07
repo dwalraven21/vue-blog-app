@@ -23,13 +23,16 @@ import axios from 'axios'
 
 export default {
 	asyncData(context){
-		return axios.get('https://nuxt-blog-1d733.firebaseio.com/posts/' + context.params.id + '.json')
+		return axios.get(process.env.baseUrl + '/posts/' + context.params.id + '.json')
 		.then(res => {
 			return {
 				loadedPost: res.data
 			}
 		})
 		.catch(e => console.log(e))
+	},
+	head: {
+		title: 'A Blog Post'
 	}
 }
 </script>

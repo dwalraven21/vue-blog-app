@@ -16,6 +16,9 @@ export default {
 	components: {
 		AdminPostForm
 	},
+	head: {
+		title: 'New Blog Post'
+	},
 	methods: {
 		onSubmitted(postData) {
 			this.$store.dispatch('addPost', postData)

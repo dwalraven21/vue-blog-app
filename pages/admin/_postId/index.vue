@@ -15,9 +15,12 @@ export default {
 	components: {
 		AdminPostForm
 	},
+	head: {
+		title: 'Edit Blog Post'
+	},
 	asyncData(context) {
 		return axios
-		.get('https://nuxt-blog-1d733.firebaseio.com/posts/' + context.params.postId + '.json')
+		.get(process.env.baseUrl + '/posts/' + context.params.postId + '.json')
 		.then(res => {
 			return {
 				loadedPost: { ...res.data, id: context.params.postId }
