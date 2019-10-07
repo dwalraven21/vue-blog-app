@@ -20,7 +20,7 @@ export default {
 		.get('https://nuxt-blog-1d733.firebaseio.com/posts/' + context.params.postId + '.json')
 		.then(res => {
 			return {
-				loadedPost: {...res.data, id: context.params.postId}
+				loadedPost: { ...res.data, id: context.params.postId }
 			}
 		})
 		.catch(e => context.error(e))
