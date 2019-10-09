@@ -66,9 +66,10 @@ axios: {
     extend (config, ctx) {
     }
 	},
-  env: {
-		baseUrl: process.env.BASE_URL || 'https://nuxt-blog-1d733.firebaseio.com/'
-  },
+  // env: {
+	// 	baseUrl: process.env.BASE_URL || 'https://nuxt-blog-1d733.firebaseio.com/'
+  // },
+  //replaced this with the axios module above
   router: {
 	  extendRoutes(routes, resolve) {
 		  routes.push({
