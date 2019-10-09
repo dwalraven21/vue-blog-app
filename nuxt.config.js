@@ -66,10 +66,11 @@ axios: {
     extend (config, ctx) {
     }
 	},
-  // env: {
-	// 	baseUrl: process.env.BASE_URL || 'https://nuxt-blog-1d733.firebaseio.com/'
-  // },
-  //replaced this with the axios module above
+  env: {
+		baseUrl: process.env.BASE_URL || 'https://nuxt-blog-1d733.firebaseio.com/',
+		fbAPIKey: 'AIzaSyAc6gzwCLFKtxw_JohEyfI720rbKjT4oeo'
+  },
+
   router: {
 	  extendRoutes(routes, resolve) {
 		  routes.push({
@@ -78,8 +79,11 @@ axios: {
 		  })
 	  }
   },
-  transition: {
+  pageTransition: {
 	  name: 'fade',
 	  mode: 'out-in'
   }
+  // router: {
+	//   middleware: 'log'
+  // }
 }
