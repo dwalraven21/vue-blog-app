@@ -67,8 +67,8 @@ axios: {
     }
 	},
   env: {
-		baseUrl: process.env.BASE_URL || 'https://nuxt-blog-1d733.firebaseio.com/',
-		fbAPIKey: 'AIzaSyAc6gzwCLFKtxw_JohEyfI720rbKjT4oeo'
+	  baseUrl: process.env.BASE_URL || 'https://nuxt-blog-1d733.firebaseio.com/',
+	  fbAPIKey: 'AIzaSyAc6gzwCLFKtxw_JohEyfI720rbKjT4oeo'
   },
 
   router: {
